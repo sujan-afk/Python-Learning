@@ -1,13 +1,12 @@
+import csv 
 students = []
 with open("students.csv") as file:
-    for line in file:
-        name, grade = line.rstrip().split(",")
-        student = {"name" : name, "grade": grade}
-        students.append(student)
-
+    reader = csv.reader(file)
+    for name, home in reader:
+        students.append({"name": name, "home":home})
 
 for student in sorted(students,key=lambda student: student["name"], reverse = False):
-    print(f"{student['name']} is in Grade {student['grade']}")
+    print(f"{student['name']} is from {student['home']}")
 
 
 
