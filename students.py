@@ -1,12 +1,8 @@
-import csv 
-students = []
-with open("students.csv") as file:
-    reader = csv.DictReader(file)
-    for row in reader:
-        students.append({"name": row["name"], "home": row["home"]})
+import csv
 
-for student in sorted(students,key=lambda student: student["name"], reverse = False):
-    print(f"{student['name']} is from {student['home']}")
+name = input("What is your name? ")
+address = input("What is your address ")
 
-
-
+with open("students.csv", "a") as file:
+    writer = csv.DictWriter(file, fieldnames=["name","home"])
+    writer.writerow({"name": name, "home": address})
