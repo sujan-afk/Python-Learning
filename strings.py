@@ -1,3 +1,9 @@
+sentence = "Hello Sujan Motu"
+listing = sentence.split(" ")
+print(listing)
+new_sentence = " ".join(listing)
+print(new_sentence)
+
 for x in "sujan":
     print(x)
 
